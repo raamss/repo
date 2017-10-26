@@ -1,0 +1,22 @@
+# Unique Identifier for this Kubernetes Cluster 
+K8S_CLUSTER_ID="" 
+# Reference https://quay.io/repository/coreos/hyperkube?tab=tags 
+K8S_VERSION="1.6.11_coreos.0" 
+# IP Address for this kubernetes cluster's master node 
+MASTER_HOST="" 
+# Comma separated list of URLs that are endpoints, as advertise clients, of etcd cluster 
+ETCD_ENDPOINTS="" 
+# Subnet to use as Pod Network within this Kubernetes Cluster 
+POD_NETWORK="10.1.0.0/16" 
+# Subnet to use for services within this Kubernetes Cluster 
+SERVICE_IP_RANGE="" 
+# IP Address that is assigned for Kubernetes Service within cluster in its IP subnet range 
+K8S_SERVICE_IP="" 
+# IP Address that is assigned for DNS Service within cluster in its IP subnet range 
+DNS_SERVICE_IP="" 
+# Publicable routable IP address of the node, irrespective of master or worker node 
+ADVERTISE_IP="" 
+# Optional DNS Name for Master node of this Kubernetes Cluster 
+MASTER_DNS_NAME="" 
+# Optional Loadbalanced IP address of the Master node of this Kubernetes Cluster 
+MASTER_LOADBALANCER_IP="" 
