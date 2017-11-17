@@ -229,6 +229,9 @@ fi
 echo "Installing kubeconfig file"
 cp -f templates/master/kubeconfig ${ROOT_DIR}/kubeconfig
 sed -i "s#\${MASTER_HOST}#${MASTER_HOST}#g; s#\${K8S_CLUSTER_ID}#${K8S_CLUSTER_ID}#g" ${ROOT_DIR}/kubeconfig
+if [ ! -d /var/lib/kubelet ]; then
+  mkdir -p /var/lib/kubelet
+fi
 if [ ! -f /var/lib/kubelet/kubeconfig ]; then
   mv ${ROOT_DIR}/kubeconfig /var/lib/kubelet/kubeconfig
 fi

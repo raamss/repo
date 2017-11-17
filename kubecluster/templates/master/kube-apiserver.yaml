@@ -15,7 +15,9 @@ spec:
     - --etcd-servers=${ETCD_ENDPOINTS}
     - --allow-privileged=true
     - --service-cluster-ip-range=${SERVICE_IP_RANGE}
-    - --secure-port=443
+    - --secure-port=6443
+    - --insecure-bind-address=127.0.0.1
+    - --insecure-port=8080
     - --advertise-address=${ADVERTISE_IP}
     - --admission-control=NamespaceLifecycle,LimitRanger,ServiceAccount,DefaultStorageClass,ResourceQuota
     - --tls-cert-file=/etc/kubernetes/ssl/apiserver.pem
@@ -32,8 +34,8 @@ spec:
       initialDelaySeconds: 15
       timeoutSeconds: 15
     ports:
-    - containerPort: 443
-      hostPort: 443
+    - containerPort: 6443
+      hostPort: 6443
       name: https
     - containerPort: 8080
       hostPort: 8080
