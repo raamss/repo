@@ -153,6 +153,11 @@ if [ ! -f /opt/bin/kubectl ]; then
   popd
 fi
 cp -f templates/worker/kubeconfig.yaml /etc/kubernetes/worker-kubeconfig.yaml
+sed -i "s#\${MASTER_HOST}#${MASTER_HOST}#g" /etc/kubernetes/worker-kubeconfig.yaml
+if [ ! -d ~/.kube ]; then
+  mkdir -p ~/.kube
+fi
+cp -f /etc/kubernetes/worker-kubeconfig.yaml ~/.kube/config
 
 # Reloading services
 systemctl daemon-reload

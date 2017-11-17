@@ -1,7 +1,7 @@
 # Unique Identifier for this Kubernetes Cluster 
 K8S_CLUSTER_ID="" 
 # Reference https://quay.io/repository/coreos/hyperkube?tab=tags 
-K8S_VERSION="1.6.11_coreos.0" 
+K8S_VERSION="1.8.2_coreos.0" 
 # IP Address for this kubernetes cluster's master node 
 MASTER_HOST="" 
 # Comma separated list of URLs that are endpoints, as advertise clients, of etcd cluster 
