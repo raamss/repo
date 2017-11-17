@@ -19,7 +19,7 @@ find /home/altifinfi/backup/Neo4jdata/neo4j* -mtime +15 -exec rm {} \;
 sleep 30s
 
 #Mysql database Backup
-cd /home/altifinfi/backup/Myqqldatabases
-mysqldump  -uroot -pAlti@123# --events --routines --triggers --all-databases > all-databases-$(date +%-Y%-m%-d).sql
-find /home/altifinfi/backup/Myqqldatabases/all-databases* -mtime +15 -exec rm {} \;
+cd /home/altifinfi/backup/Mysqldatabases
+mysqldump -uroot -pAlti@123# --events --routines --triggers --all-databases | gzip > mysql_alldb_$(date -d "today" +"%Y-%m-%d").sql.gz
+find /home/altifinfi/backup/Mysqldatabases/all-databases* -mtime +15 -exec rm {} \;
 sleep 30s
