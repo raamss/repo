@@ -6,7 +6,7 @@ if [ $# -lt 1 ]; then
 fi
 
 if [ "${GITHUB_USER}" == "" ]; then
-  export GITHUB_USER = "ciuserr"
+  export GITHUB_USER="ciuserr"
 fi
 
 if [ "${GITHUB_PASSWORD}" == "" ]; then
@@ -22,3 +22,8 @@ if [ "$(eval $CHECK_REPO | grep message)" != "" ]; then
 else
   echo "Repo $1 exists or verification failed"
 fi
+
+ROOT_DIR="$HOME"
+git clone https://github.com/davinta/$1.git
+cd $1
+for i in develop feature; do echo $i; git branch $i; git checkout $i; git push origin $i; done
